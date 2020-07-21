@@ -13,6 +13,11 @@
 body {
   font-family: "Lato", sans-serif;
   margin: 0;
+  transition: transform 0.4s ease;
+}
+
+body.show-nav {
+  transform: translateX(200px);
 }
 
 nav {
@@ -80,7 +85,8 @@ header p {
   margin: 30px 0;
 }
 
-button, input[type='submit'] {
+button,
+input[type="submit"] {
   background-color: var(--secondary-color);
   border: 0;
   border-radius: 5px;
@@ -91,7 +97,7 @@ button, input[type='submit'] {
 }
 
 .toggle {
-  background-color: rgba(0,0,0,0.3);
+  background-color: rgba(0, 0, 0, 0.3);
   position: absolute;
   top: 20px;
   left: 20px;
@@ -106,11 +112,11 @@ button, input[type='submit'] {
   padding: 15px;
   margin: 0 auto;
   max-width: 100%;
-  width: 800px; 
+  width: 800px;
 }
 
 .modal-container {
-  background-color: rgba(0,0,0,0.6);
+  background-color: rgba(0, 0, 0, 0.6);
   display: none;
   position: fixed;
   top: 0;
@@ -119,10 +125,14 @@ button, input[type='submit'] {
   bottom: 0;
 }
 
+.modal-container.show-modal {
+  display: block;
+}
+
 .modal {
   background-color: white;
   border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   position: absolute;
   overflow: hidden;
   top: 50%;
@@ -130,6 +140,8 @@ button, input[type='submit'] {
   transform: translate(-50%, -50%);
   max-width: 100%;
   width: 400px;
+  animation-name: modalopen;
+  animation-duration: var(--modal-duration);
 }
 
 .modal-header {
@@ -167,4 +179,14 @@ button, input[type='submit'] {
   position: absolute;
   top: 0;
   right: 0;
+}
+
+@keyframes modalopen {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
